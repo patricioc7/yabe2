@@ -1,0 +1,4 @@
+play.modules.morphia
+play.modules.morphia.utils
+play.modules.morphia.validation
+play.test

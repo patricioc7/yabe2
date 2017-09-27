@@ -1,0 +1,52 @@
+# History
+# 1.5.0a  - add missing osgl-logging.jar to dist
+# 1.5.0   - dependencies updates
+#         - osgl-tool 0.3-SNAPSHOT
+#         - osgl-storage 0.3-SNAPSHOT
+#         - mongo-java-driver 2.12.2
+#         - morphia 0.107
+# 1.4.0   - update osgl-tool to 0.2-SNAPSHOT
+# 1.3.7a  - https://github.com/greenlaw110/play-morphia/issues/117
+# 1.3.7   - https://github.com/greenlaw110/play-morphia/issues/115
+# 1.3.6b  - Fix https://github.com/greenlaw110/play-morphia/issues/114
+# 1.3.5   - Merge pull requests: https://github.com/greenlaw110/play-morphia/pull/113
+#           1. NullPointerException when creating a Model which has an @Embeded entity
+#           2. Added Play! custom class loader to SnakeYAML
+# 1.3.4a  - Add storage migrate controller and viewers
+# 1.3.3   - Migrate even earlier blob version which name is composed by modelClass_fieldName_oid
+# 1.3.2   - Add blob migrate controller action method
+# 1.3.1   - optimize S3 Get service, add forceGet() method to Blob
+# 1.3     - new blob handling logic, enable external storage (e.g. S3) in addition to gridfs
+# 1.2.15a - improve Blob handling
+# 1.2.15  - Add <code>isDeleted()</code> method to <code>Model</code> class 
+#         - "new Blob() should not save the content into gridfs":https://github.com/greenlaw110/play-morphia/issues/107
+#         - "Morphia 1.2.14 is missing javassist dependency":https://github.com/greenlaw110/play-morphia/issues/106
+# 1.2.14  - Add <code>asMap</code> method to <code>AggregationResult</code> class
+#         _ "Model.cloud() function error":https://github.com/greenlaw110/play-morphia/issues/105
+#         _ "Group by field":https://github.com/greenlaw110/play-morphia/issues/102
+#         _ "Model.groupAverage doesn't respect Model.Column annotationhttps://github.com/greenlaw110/play-morphia/issues/98":
+#         _ "Application.conf morphia.autoTimestamp doesn't work at all":https://github.com/greenlaw110/play-morphia/issues/97
+#         _ "@Unique validation not working correctly when updating record":https://github.com/greenlaw110/play-morphia/issues/96
+# 1.2.13b - enable passing <code>null</code> to Model._update()
+#         - Hook <code>_update</code> to <code>@OnUpdate</code> and <code>@Updated</code> annotated functions
+#         - Cache entity feature
+# 1.2.12   - _set and _unset, fix exception on _update when null value encountered
+# 1.2.11   - Seq: sequence generator
+# 1.2.10   - _update method on Model
+# 1.2.9    - generic getId() method
+#            - Support intelligent @Converters annotation processing
+# 1.2.8     - batch insert; support String type ID, mongodb driver options; configure connection using url style
+# 1.2.7-20120530 Fix issue: Doesn't compile when Rythm presented
+# 1.2.7-20120528 Fix issue: #55 Play 1.2.4 - Loading of fixtures no longer supports references?
+# 1.2.7  - support playframework 1.2.4+
+# 1.2.6a - Bug fix: https://github.com/greenlaw110/play-morphia/issues/75
+# 1.2.6  - Support atomic update operations
+#        - Bug fix: https://github.com/greenlaw110/play-morphia/issues/71
+# 1.2.5b - process keywords in MorphiaPlugin.MorphiaModelLoader.fetch(), simulate google search
+# 1.2.5a - Synchronize to class when get long ID
+#        - trim value when processing where statement in Factory.fetch
+# 1.2.5 - mavenize project
+# 1.2.4d - Add BlobGsonAdapter and ModelFactoryGsonAdapter utilities
+self: play -> morphia 1.5.0a
+require:
+    - play 1.2
