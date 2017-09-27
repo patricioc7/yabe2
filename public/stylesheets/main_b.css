@@ -1,0 +1,105 @@
+body {
+    font: 400 15px Lato, sans-serif;
+    line-height: 1.8;
+}
+.navbar {
+    margin-bottom: 0;
+    background-color: #2d3f56!important;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 3px;
+    border-radius: 0;
+    font-family: Montserrat, sans-serif;
+}
+
+.jumbotron { 
+    background-color: #364B66; 
+    color: #ffffff;
+    padding: 100px 25px;
+    font-family: Montserrat, sans-serif;
+}
+
+FOOTER{
+	background-color: #a9a9a9;
+    padding: 25px;
+}
+
+.white{
+	color: #fff;
+}
+.navbar li a, .navbar .navbar-brand {
+    color: #fff !important;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #f4511e !important;
+    background-color: #fff !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+}
+
+.logo-small {
+    color: #fff;
+    font-size: 50px;
+}
+
+.logo {
+    color: #fff;
+    font-size: 200px;
+}
+
+.bg-grey {
+    background-color: #f6f6f6;
+}
+.panel{
+	padding: 20px;
+	border-color: none;
+}
+.post-title{
+	margin-top: 2px;
+}
+.random-title{
+	color: #337ab7;
+	
+}
+
+@media (min-width: 768px){
+	.modal-dialog {
+	    margin: 78px auto;
+	}
+}
+
+.comment-button{
+	padding: 25px;
+}
+.comment-date{
+	font-size: 12px;
+}
+.panel-default{
+    border-color: white;
+}
+.fixed {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:100px;
+   width:100%;
+}
+.main-title:hover{
+	color: #337ab8;
+	text-decoration: none;
+}
+.main-container-admin{
+	margin-top: 25px;
+}
+.admin-container{
+	background-color: white;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-top-color: transparent;
+}

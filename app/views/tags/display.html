@@ -1,0 +1,72 @@
+*{ Display a post in one of these modes: 'full', 'home' or 'teaser' }*
+<div class="container-fluid text-center">
+	<div class="row content">
+		<div class="col-sm-2 sidenav"></div>
+		
+		
+		<div class="col-sm-8 text-left">
+			<div class="post ${_as == 'teaser' ? 'teaser' : ''}">
+				<div class="well">
+
+					<h2 class="post-title">
+						<a href="@{Application.show(_post.id)}">${_post.title}</a>
+					</h2>
+					<div class="post-metadata">
+						<span class="glyphicon glyphicon-file"></span>
+						<span class="post-author">by ${_post?.author?.fullname}</span>, 
+						<span class="post-date">${_post.postedAt.format('dd MMM yy')}</span>
+						#{if _as != 'full'} 
+							<span class="post-comments">
+							&nbsp;|&nbsp; ${_post.comments.size() ?: 'no'}
+							comment${_post.comments.size().pluralize()} 
+								#{if _post.comments}
+									, latest by ${_post.comments[0].author} 
+								#{/if} </span> 
+						#{/if}
+						#{elseif _post.tags} 
+							<span class="post-tags"> - 
+							#{list items:_post.tags, as:'tag'}
+							 <a href="@{Application.listTagged(tag.name)}"><span class="label label-default">${tag}</span></a> 
+							#{/list}
+							</span> 
+						#{/elseif}
+					</div>
+					#{if _as != 'teaser'}
+					<br>
+					<div class="panel panel-default post-content">
+						<div class="about"></div>
+						${_post.content.nl2br()}
+					</div>
+					#{/if}
+				</div>
+			</div>
+			
+			#{if _as == 'full'}
+			<div class="comments">
+		        <h3>
+		            ${_post.comments.size() ?: 'no'} 
+		            comment${_post.comments.size().pluralize()}
+		        </h3>
+		        
+		        #{list items:_post.comments, as:'comment'}
+		        
+		        <div class="media">
+				  <div class="media-left">
+				    <img src="@{'/public/images/img_avatar1.png'}" class="media-object" style="width:60px">
+				  </div>
+				  <div class="media-body">
+				    <h4 class="media-heading">${comment.author} <span class="comment-date"> - ${comment.postedAt.format('dd MMM yy')}</span></h4> 
+				    <p>${comment.content.escape().nl2br()}</p>
+				  </div>
+				  
+				</div>
+		        <hr>		   
+		        #{/list}
+		        
+		    </div>
+			#{/if}
+			
+		</div>
+		<div class="col-sm-2 sidenav"></div>
+	</div>
+</div>

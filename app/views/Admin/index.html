@@ -1,0 +1,13 @@
+#{extends 'admin.html' /}
+	<h3>Welcome ${user}, <span>you have written ${posts.size() ?: 'no'} ${posts.pluralize('post', 'posts')} so far:</span></h3>
+	<ul> 
+	#{list items:posts, as:'post'}
+	     <li>
+	        <a href="@{Admin.form(post.id)}">${post.title}</a>
+	    </li>
+	#{/list}
+	</ul>
+	<br>
+	<p id="newPost" >
+		<a href="@{form()}"><button type="button" class="btn btn-success">+ write a new post</button></a>
+	</p>

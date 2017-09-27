@@ -1,0 +1,63 @@
+<!DOCTYPE html >
+<html>
+<head>
+<title>#{get 'title' /}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="@{'/public/javascripts/jquery.tools.min.js'}"></script>
+<script src="@{'/public/javascripts/jquery-2.2.4.min.js'}"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/main_b.css'}" />
+<link rel="shortcut icon" type="image/png"	href="@{'/public/images/favicon.png'}" />
+
+
+</head>
+<body class="bg-grey">
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="@{Application.index()}">Yabe <span class="glyphicon glyphicon-comment"></span></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="@{Application.signUp()}"><span
+							class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li><a href="@{Admin.index()}"><span
+							class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<div id="header" class="jumbotron text-center">
+
+		<div id="title">
+			<h1>
+				<a class="main-title white" href="@{Application.index()}">${blogTitle}</a>
+			</h1>
+			<h2>${blogBaseline}</h2>
+		</div>
+	</div>
+	<div id="main">#{doLayout /}</div>
+
+
+	<footer class="container-fluid text-center white">
+		<a class="white" href="#myPage" title="To Top"> <span class="glyphicon glyphicon-chevron-up"></span></a>
+		<p >
+			Yabe is a (not that) powerful blog engine built with the
+			 <a	class="white" href="https://www.playframework.com">Play framework</a> as a
+			tutorial application.
+		</p>
+	</footer>
+
+</body>
+</html>

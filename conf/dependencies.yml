@@ -1,0 +1,14 @@
+require:
+   - play 1.4.4
+   - com.grayshirts -> morphia 1.5.0a
+   - org.mongodb -> mongo-java-driver 2.13.1
+   - com.google.guava -> guava 14.0.1
+   - play -> crud
+   - play -> secure
+
+repositories:
+   - gelinsoft:
+      type: http
+      artifact: "http://sdk.docturno.com/morphia/[module]-[revision].zip"
+      contains:
+          - com.grayshirts -> *

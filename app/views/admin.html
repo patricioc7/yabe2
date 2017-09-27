@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Administration</title>		
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        #{get 'moreStyles' /}	
+        <link rel="stylesheet" type="text/css" media="screen" 
+                href="@{'/public/stylesheets/main_b.css'}" />
+                <link rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="shortcut icon" type="image/png" 
+                href="@{'/public/images/favicon.png'}" />
+        <script src="@{'/public/javascripts/jquery-1.4.2.min.js'}"></script>
+        <script src="@{'/public/javascripts/jquery.tools.min.js'}"></script>
+		<script src="@{'/public/javascripts/jquery-2.2.4.min.js'}"></script>
+		<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    </head>
+    <body id="admin" class="bg-grey">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#myNavbar">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="@{Application.index()}">Yabe <span class="glyphicon glyphicon-comment"></span> Admin</a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="@{Secure.logout()}"><span
+								class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="container-fluid text-center main-container-admin">
+			<div class="row content">
+				<div class="col-sm-2 sidenav"></div>
+				<div class="col-sm-8 text-left">
+        		
+					<div id="main">
+					    <br><br>	
+					    <ul id="adminMenu" class="nav nav-tabs">
+					        <li class="${request.controller == 'Admin' ? 'active' : ''}">
+					            <a href="@{Admin.index()}">My posts</a>
+					        </li>
+					        #{secure.check 'admin'}
+					            <li class="${request.controller == 'Posts' ? 'active' : ''}">
+					                <a href="@{Posts.list()}">Posts</a>
+					            </li>
+					            <li class="${request.controller == 'Tags' ? 'active' : ''}">
+					                <a href="@{Tags.list()}">Tags</a>
+					            </li>
+					            <li class="${request.controller == 'Comments' ? 'active' : ''}">
+					                <a href="@{Comments.list()}">Comments</a>
+					            </li>
+					            <li class="${request.controller == 'Users' ? 'active' : ''}">
+					                <a href="@{Users.list()}">Users</a>
+					            </li>
+					        #{/secure.check}
+					    </ul>
+					    <div class="admin-container">
+					    #{doLayout /} 
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+    <footer class="container-fluid text-center white fixed">
+		<a class="white" href="#myPage" title="To Top"> <span class="glyphicon glyphicon-chevron-up"></span></a>
+		<p >
+			Yabe is a (not that) powerful blog engine built with the
+			 <a	class="white" href="https://www.playframework.com">Play framework</a> as a
+			tutorial application.
+		</p>
+	</footer>
+        
+    </body>
+</html>

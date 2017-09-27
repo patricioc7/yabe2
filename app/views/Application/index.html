@@ -1,0 +1,32 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+ 
+#{if frontPost}
+    
+    #{display post:frontPost, as:'home' /}
+    
+    #{if olderPosts.size()}
+    	<div class="container-fluid text-center">
+			<div class="row content">
+				<div class="col-sm-2 sidenav"></div>
+				<div class="col-sm-8 text-left">
+       				<div class="older-posts">
+	            		<h3 class="random-title">Older posts <span class="from">from this blog</span></h3>
+        			</div>
+        		</div>
+        		<div class="col-sm-2 sidenav"></div>
+        	</div>
+        </div>
+        #{list items:olderPosts, as:'oldPost'}
+			#{display post:oldPost, as:'teaser' /}
+		#{/list}
+        
+    #{/if}
+    
+#{/if}
+ 
+#{else}
+    <div class="empty">
+        There is currently nothing to read here.
+    </div>
+#{/else}
