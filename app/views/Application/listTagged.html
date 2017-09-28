@@ -2,19 +2,25 @@
 #{set title:'Posts tagged with ' + tag /}
  
 *{********* Title ********* }*
- 
-#{if posts.size() > 1}
-   <h3>There are ${posts.size()} posts tagged '${tag}'</h3>
-#{/if}
-#{elseif posts}
-    <h3>There is 1 post tagged '${tag}'</h3>
-#{/elseif}
-#{else}
-    <h3>No post tagged '${tag}'</h3>
-#{/else}
- 
-*{********* Posts list *********}*
- 
+<div class="container-fluid text-center">
+	<div class="row content">
+		<div class="col-sm-2 sidenav"></div>
+		<div class="col-sm-8 "> 
+			#{if posts.size() > 1}
+			   <h2>There are ${posts.size()} posts tagged '${tag}'</h2>
+			#{/if}
+			#{elseif posts}
+			    <h2>There is 1 post tagged '${tag}'</h2>
+			#{/elseif}
+			#{else}
+			    <h2>No post tagged '${tag}'</h2>
+			#{/else}
+			 
+			*{********* Posts list *********}*
+ 		</div>
+ 		<div class="col-sm-2 sidenav"></div>
+ 	</div>
+</div>
 <div class="older-posts">
     #{list items:posts, as:'post'}
         #{display post:post, as:'teaser' /}

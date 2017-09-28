@@ -26,7 +26,7 @@
 						#{elseif _post.tags} 
 							<span class="post-tags"> - 
 							#{list items:_post.tags, as:'tag'}
-							 <a href="@{Application.listTagged(tag.name)}"><span class="label label-default">${tag}</span></a> 
+							 <a href="@{Application.listTagged(tag)}"><span class="label label-default">${tag}</span></a> 
 							#{/list}
 							</span> 
 						#{/elseif}

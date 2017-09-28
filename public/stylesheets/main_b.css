@@ -13,6 +13,11 @@ body {
     border-radius: 0;
     font-family: Montserrat, sans-serif;
 }
+@media screen and ( min-height: 900px ){
+	#main{
+	    min-height: 520px;
+	}
+}
 
 .jumbotron { 
     background-color: #364B66; 
@@ -102,4 +107,7 @@ FOOTER{
     padding: 30px;
     border: 1px solid #ddd;
     border-top-color: transparent;
+}
+#totop{
+	cursor: pointer;
 }

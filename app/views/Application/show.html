@@ -53,29 +53,31 @@
         <div class="modal-body">
 		#{form @Application.postComment(post.id)}
 		
-			#{ifErrors}
-			    <p class="error">
-			        ${errors[0]}
-			    </p>
-			#{/ifErrors}
+
 		 	<div class="form-group">
 		        <label for="author">Your name: </label>
-		        <input type="text" name="author" id="author" value="${params.author}" class="form-control" />
+		        <input type="text" name="author" id="author" value="${params.author}" class="form-control" required/>
 		    </div>
 		    <div class="form-group">
 		    <label for="content">Your message: </label>
-		    <textarea name="content" id="content" class="form-control" >${params.content}</textarea>
+		    <textarea name="content" id="content" class="form-control" required >${params.content}</textarea>
 			</div>
 			<div class="form-group">
 			    <label for="code">Please type the code below: </label>
 			    <img src="@{Application.captcha(randomID)}" />
 			    <br />
-			    <input  type="text" name="code" id="code" size="18" value="" class="form-control" />
+			    <input  type="text" name="code" id="code" size="18" value="" class="form-control" required/>
 			    <input type="hidden" name="randomID" value="${randomID}" />
 			</div>
 			<p>
 			    <button type="submit" value="Submit your comment"  class="btn btn-default">Submit</button>
 			</p>
+			#{ifErrors}
+			<div class="alert alert-danger" id="errorShowModal">
+			      <strong>Error</strong> ${errors[0]}
+			      
+			</div>
+			#{/ifErrors}
 		#{/form}
         </div>
         <div class="modal-footer">

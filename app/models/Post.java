@@ -62,8 +62,13 @@ public class Post extends Model {
         return query.first();
     }
     
-    public static List<Post> findTaggedWith(String tag) {
-    	return Post.q().filter("tag", tag).asList();
+    public static List<Model> findTaggedWith(String tag) {
+    	Tag currentTag = Tag.q().filter("name", tag).first();
+    	String tagId = currentTag.getId().toString();
+    	MorphiaQuery mq = Post.q();
+    	mq.field("tags").hasThisOne(currentTag);
+    	List <Model> listita = mq.asList();
+    	return listita;
     	
         /*return Post.find(
             "select distinct p from Post p join p.tags as t where t.name = ?", tag

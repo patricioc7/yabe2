@@ -6,6 +6,7 @@ import play.*;
 import play.data.validation.Required;
 import play.libs.Codec;
 import play.libs.Images;
+import play.modules.morphia.Model;
 import play.modules.morphia.Model.MorphiaQuery;
 import play.mvc.*;
 import play.cache.*;
@@ -85,7 +86,7 @@ public class Application extends Controller {
     }
     
     public static void listTagged(String tag) {
-        List<Post> posts = Post.findTaggedWith(tag);
+        List<Model> posts = Post.findTaggedWith(tag);
         render(tag, posts);
     }
     
@@ -101,12 +102,11 @@ public class Application extends Controller {
         	
                 validation.valid(user);
                 if(validation.hasErrors()) {
-                    render("@signUp", user);
+                	flash.error("la cagaste ameo");
+                }else {
+            		user.save();
+            		flash.success("User created");
                 }
-                
-        		user.save();
-        		flash.success("User created");
-        		
         		
         	}else {
         		//flash.success("User already exists");
